@@ -9,7 +9,9 @@
 
 ## Algunas capturas
 
-(agregar)
+![foto menu](./assets/captura1.jpeg)
+![foto escenario](./assets/captura 2.jpeg)
+![foto escenario 2](./assets/captura 3.jpeg)
 
 ## Reglas de Juego 
 
@@ -20,11 +22,15 @@ En esta edicion, los patos se generan detras de las nubes que se pueden presenci
 * El jugador comenzara con *5 balas*, las cuales a medida que vaya disparando iran bajando
 * en el caso de que se equivoque y no le de al pato al disparar *se le restara una bala*, lo mismo pasara si le dispara al pato
 
+![foto pato](./assets/pato.jpeg)
+
 El juego finalizara cuando el jugador **ya no tenga balas** 
 
 ## Pato dorado
 
 A diferencia del juego original, hemos sumado una variante de pato llamado **Pato Dorado**, el cual es un pato de color dorado y gafas de sol
+
+![foto pato](./assets/patoDorado.jpeg)
 
 * Al matarlo, otorga *20 puntos mas* que cuando matas un pato comun (osea, 30 puntos en total)
 * Al morir, el pato dorado te otorgara *2 balas extra* para seguir jugando

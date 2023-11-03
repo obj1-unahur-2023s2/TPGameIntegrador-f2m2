@@ -7,11 +7,9 @@
 - Martin Bercaitz
 - Federico Jose Breme
 
-## Algunas capturas
+## Captura 
 
 ![foto menu](./assets/captura1.jpeg)
-![foto escenario](./assets/captura 2.jpeg)
-![foto escenario 2](./assets/captura 3.jpeg)
 
 ## Reglas de Juego 
 

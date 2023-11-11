@@ -13,7 +13,7 @@
 
 ## Reglas de Juego 
 
-Nuestro juego es una breve imitacion del celebre juego **Duck Hunt** de **Nintendo** 
+Nuestro juego es una breve imitacion del celebre juego **Duck Hunt** de **Nintendo**. 
 En esta edicion, los patos se generan detras de las nubes que se pueden presenciar dentro del tablero, y nuestro objetivo es, utilizando las flechas del teclado, mover la mira y dispararle a los patos
 
 * Por cada pato disparado se le asignara 10 puntos al jugador
@@ -21,6 +21,11 @@ En esta edicion, los patos se generan detras de las nubes que se pueden presenci
 * en el caso de que se equivoque y no le de al pato al disparar *se le restara una bala*, lo mismo pasara si le dispara al pato
 
 ![foto pato](./assets/pato.jpeg)
+
+El juego cuenta con 2 niveles de dificultad:
+
+* **Day Mode:** Los patos se generan de forma normal, nuestro objetivo es matarlos hasta juntar 250 puntos o mas
+* **Night Mode:** Los patos se van generando de manera mas rapida, los patos dorados tardan en generarse mucho mas que lo habitual, al llegar a este punto podes juntar los puntos que desees
 
 El juego finalizara cuando el jugador **ya no tenga balas** 
 
@@ -31,7 +36,7 @@ A diferencia del juego original, hemos sumado una variante de pato llamado **Pat
 ![foto pato](./assets/patoDorado.jpeg)
 
 * Al matarlo, otorga *20 puntos mas* que cuando matas un pato comun (osea, 30 puntos en total)
-* Al morir, el pato dorado te otorgara *2 balas extra* para seguir jugando
+* Al morir, el pato dorado te otorgara *de 1 a 3 balas extra* para seguir jugando
 
 ## Instrucciones
 
@@ -47,6 +52,5 @@ A diferencia del juego original, hemos sumado una variante de pato llamado **Pat
 - Universidad Nacional de Hurlingham
 - Programacion de Objetos I
 - Profesor/es: Lucas Spigariol, Hernan Coniglio
-- Comision 2
-- Versión de wollok:  
+- Comision 2  
 

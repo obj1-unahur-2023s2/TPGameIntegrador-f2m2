@@ -1,7 +1,6 @@
 import personajes.*
 import sonidos.*
 import wollok.game.*
-import wollok.lang.*
 
 	
 object juego {
@@ -17,7 +16,20 @@ object juego {
 		instanciaSonidoJuego.musicaDeFondo(instanciaSonidoJuego.musicGame())
         self.configurarTeclas()
         self.agregarVisualesJuego()
-		self.spawnPatos()
+		self.spawnPatos(1600, 1100)
+    }
+    method iniciarNivelDos() {
+    	game.clear()
+		const instanciaSonidoNivelDos = new MusicaNivelDos()		
+		instanciaSonidoNivelDos.musicaDeFondo(instanciaSonidoNivelDos.musicGame())
+		game.addVisual(fondoNivelDificil)
+		game.addVisual(cuadroPuntos)
+		game.addVisual(puntaje)
+		game.addVisual(perro)
+		game.addVisual(balas)
+		game.addVisualCharacter(arma)
+        self.configurarTeclas()
+		game.schedule(500, {self.spawnPatos(1250, 500)})
     }
     method finDelJuego() {
     	game.clear()
@@ -33,7 +45,7 @@ object juego {
 		const instanciaSonidoJuego = new MusicaDeJuego()
 		instanciaSonidoJuego.musicaDeFondo(instanciaSonidoJuego.musicGame())
         self.agregarVisualesJuego()
-		self.spawnPatos()
+		self.spawnPatos(1300, 1100)
 		self.configurarTeclas()
 		arma.balas(5)
 		puntaje.puntos(0)
@@ -44,7 +56,7 @@ object juego {
         if (!recargaEnCurso) {
             arma.recargarYDisparar()
             recargaEnCurso = true
-            game.schedule(650, {recargaEnCurso = false })
+            game.schedule(625, {recargaEnCurso = false })
         	}
     	}
 	}
@@ -54,21 +66,21 @@ object juego {
         	if(game.getObjectsIn(posicionRandom).isEmpty()) {posicionRandom}
        		else {self.posicionAleatoria()}
 	} 
-	method agregarVisualPato() {
+	method agregarVisualPato(ticksRemove) {
 		const generacionPato = new Patos(position = self.posicionAleatoria())
 		game.addVisual(generacionPato)
 		generacionPato.graznidoPato()
-		game.schedule([1500,2000,2500].anyOne(), {generacionPato.eliminarPatoSiEsta(generacionPato)})
+		game.schedule([ticksRemove*2,ticksRemove*3,ticksRemove*4].anyOne(), {generacionPato.eliminarPatoSiEsta(generacionPato)})
 	}
-	method agregarVisualPatoDorado() {
+	method agregarVisualPatoDorado(ticksRemove) {
 		const generacionPatoDorado = new PatosDorados(position = self.posicionAleatoria())
 		game.addVisual(generacionPatoDorado)
 		generacionPatoDorado.graznidoPato()
-		game.schedule([1000,1500,2000].anyOne(), {generacionPatoDorado.eliminarPatoSiEsta(generacionPatoDorado)})
+		game.schedule([ticksRemove,ticksRemove*1.5,ticksRemove*2].anyOne(), {generacionPatoDorado.eliminarPatoSiEsta(generacionPatoDorado)})
 	}
- 	method spawnPatos() {
-		game.onTick([2000, 3000].anyOne(), "pato",{self.agregarVisualPato()})
-		game.onTick([8000, 10000].anyOne(), "patoDorado",{self.agregarVisualPatoDorado()})
+ 	method spawnPatos(ticksSpawn, ticksRemove) {
+		game.onTick([ticksSpawn*2, ticksSpawn*3].anyOne(), "pato",{self.agregarVisualPato(ticksRemove)})
+		game.onTick([ticksSpawn*8, ticksSpawn*10].anyOne(), "patoDorado",{self.agregarVisualPatoDorado(ticksRemove)})
 	}
 	method agregarVisualesJuego() {
 		game.addVisual(fondoJuego)
@@ -106,6 +118,16 @@ object fondoReglas {
 
 object fondoJuego {
 	const property image = "./images/background.jpeg"
+	const property position = game.at(0,0)
+	
+	method esPato() = false
+	method esPatoDorado() = false
+	method matar(score) {}
+}
+
+
+object fondoNivelDificil {
+	const property image = "./images/background2.png"
 	const property position = game.at(0,0)
 	
 	method esPato() = false

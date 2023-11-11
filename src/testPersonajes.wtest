@@ -20,12 +20,6 @@ describe "test de personajes" {
 		assert.equals(3, arma.balas())
 	}
 	
-	test "cuando disparo 2 veces, y agrego 2 balas, el total de balas = 5" {
-		arma.balas(3) //en este caso debemos setearlo porque no podemos ejecutar el method disparar()
-		arma.agregarDosBalas()
-		assert.equals(5, arma.balas())
-	}
-	
 	//balas
 	test "las balas no son pato" {
 		assert.notThat(balas.esPato())

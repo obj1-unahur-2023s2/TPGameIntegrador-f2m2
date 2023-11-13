@@ -47,7 +47,7 @@ object balas {
     	if (arma.balas() == 5) {return "./images/5Balas.png"}
     	else if (arma.balas() == 4) {return "./images/4Balas.png"}
     	else if (arma.balas() == 3) {return "./images/3Balas.png"}
-    	else if (arma.balas() == 2) {return "./images/2Balas.png"}
+    	else if (arma.balas() == 2) {return "./images/2balas.png"}
     	else if (arma.balas() == 1) {return "./images/1Balas.png"}
     	else {return "./images/0Balas.png"}
   	}

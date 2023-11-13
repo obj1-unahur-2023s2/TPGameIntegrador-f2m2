@@ -2,6 +2,17 @@ import personajes.*
 import sonidos.*
 import wollok.game.*
 
+
+class Nivel {
+	var musica
+	var imagenfono
+	var velocidad
+	
+	method iniciar()
+	  musicalizador.reproducir(musicaFondo)
+	  game,add(imagen)
+	  onTick(velocidad)
+}
 	
 object juego {
 	method inicio() {

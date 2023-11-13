@@ -16,7 +16,13 @@ object arma {
 	method esPatoDorado() = false
 	method darBalas() {balasDadasPorPato = [1,2,3].anyOne()}
 	method agregarBalas() {balas = 6.min(balas + balasDadasPorPato)}
-	method sonidoDisparoSiHayBalas() {if (balas > 0) {new SonidoDisparos().ejecutarDisparo()}}
+	method sonidoDisparoSiHayBalas() {
+		if (balas > 0) {
+			new Sonido(sonido= "disparo.wav").ejecutar()
+		}
+	}
+
+
 	method terminarJuego() {if (balas == 0) {juego.finDelJuego()}}
 	method pasarANivelDos() {if (game.hasVisual(fondoJuego) && puntaje.puntos() >= 250) {juego.iniciarNivelDos()}}
 	method disparar() {
@@ -40,25 +46,16 @@ object arma {
 object balas {
   	var property position = game.at(0, 0)
   	
-	method esPato() = false
-	method esPatoDorado() = false
+	
   	method matar(score) {}
-  	method image() {
-    	if (arma.balas() == 5) {return "./images/5Balas.png"}
-    	else if (arma.balas() == 4) {return "./images/4Balas.png"}
-    	else if (arma.balas() == 3) {return "./images/3Balas.png"}
-    	else if (arma.balas() == 2) {return "./images/2balas.png"}
-    	else if (arma.balas() == 1) {return "./images/1Balas.png"}
-    	else {return "./images/0Balas.png"}
-  	}
+  	method image() = "./images/" + arma.balas().toString() + "Balas.png"  
+  	
 }
 
 
 object cuadroPuntos {
   	var property position = game.at(5, 0)
 
-	method esPato() = false
-	method esPatoDorado() = false
   	method matar(score) {}
   	method image() = "./images/score.png"
 }
@@ -67,8 +64,6 @@ object cuadroPuntos {
 object perro {
 	var property position = game.at(1, 1)
 	
-	method esPato() = false
-	method esPatoDorado() = false
 	method image() = "./images/clue.png"
 	method avisoBalasTotales() {game.say(self, "Te quedan " + arma.balas().toString() + " bala/s!")}
 	method avisoBalasExtra() {game.say(self, "Se sumaron " + arma.balasDadasPorPato().toString() + " balas extra!")}
